@@ -1,0 +1,9 @@
+.header {
+  color: red; }
+  .header__logo {
+    text-align: center; }
+
+.footer {
+  color: black; }
+  .footer__logo {
+    text-align: left; }
