@@ -5,3 +5,7 @@
         text-align: left;
     }
 }
+
+.img {
+    @include sprite($career);
+}

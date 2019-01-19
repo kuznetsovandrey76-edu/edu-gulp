@@ -1,1 +1,1 @@
-body{background:khaki}.header{color:red;display:-webkit-box;display:-webkit-flex;display:flex}.header__logo{text-align:center}.footer{color:#000}.footer__logo{text-align:left}
+body{background:khaki}.header{display:-webkit-box;display:-webkit-flex;display:flex}.footer{color:#000}.footer__logo{text-align:left}.img{background-image:url(../img/sprite.png);background-position:0 0;width:48px;height:48px}

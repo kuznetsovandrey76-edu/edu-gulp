@@ -1,0 +1,167 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$career-name: 'career';
+$career-x: 0px;
+$career-y: 0px;
+$career-offset-x: 0px;
+$career-offset-y: 0px;
+$career-width: 48px;
+$career-height: 48px;
+$career-total-width: 144px;
+$career-total-height: 144px;
+$career-image: '../img/sprite.png';
+$career: (0px, 0px, 0px, 0px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'career', );
+$creative-name: 'creative';
+$creative-x: 48px;
+$creative-y: 0px;
+$creative-offset-x: -48px;
+$creative-offset-y: 0px;
+$creative-width: 48px;
+$creative-height: 48px;
+$creative-total-width: 144px;
+$creative-total-height: 144px;
+$creative-image: '../img/sprite.png';
+$creative: (48px, 0px, -48px, 0px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'creative', );
+$env-name: 'env';
+$env-x: 0px;
+$env-y: 48px;
+$env-offset-x: 0px;
+$env-offset-y: -48px;
+$env-width: 48px;
+$env-height: 48px;
+$env-total-width: 144px;
+$env-total-height: 144px;
+$env-image: '../img/sprite.png';
+$env: (0px, 48px, 0px, -48px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'env', );
+$family-name: 'family';
+$family-x: 48px;
+$family-y: 48px;
+$family-offset-x: -48px;
+$family-offset-y: -48px;
+$family-width: 48px;
+$family-height: 48px;
+$family-total-width: 144px;
+$family-total-height: 144px;
+$family-image: '../img/sprite.png';
+$family: (48px, 48px, -48px, -48px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'family', );
+$health-name: 'health';
+$health-x: 96px;
+$health-y: 0px;
+$health-offset-x: -96px;
+$health-offset-y: 0px;
+$health-width: 48px;
+$health-height: 48px;
+$health-total-width: 144px;
+$health-total-height: 144px;
+$health-image: '../img/sprite.png';
+$health: (96px, 0px, -96px, 0px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'health', );
+$relax-name: 'relax';
+$relax-x: 96px;
+$relax-y: 48px;
+$relax-offset-x: -96px;
+$relax-offset-y: -48px;
+$relax-width: 48px;
+$relax-height: 48px;
+$relax-total-width: 144px;
+$relax-total-height: 144px;
+$relax-image: '../img/sprite.png';
+$relax: (96px, 48px, -96px, -48px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'relax', );
+$rise-name: 'rise';
+$rise-x: 0px;
+$rise-y: 96px;
+$rise-offset-x: 0px;
+$rise-offset-y: -96px;
+$rise-width: 48px;
+$rise-height: 48px;
+$rise-total-width: 144px;
+$rise-total-height: 144px;
+$rise-image: '../img/sprite.png';
+$rise: (0px, 96px, 0px, -96px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'rise', );
+$spirit-name: 'spirit';
+$spirit-x: 48px;
+$spirit-y: 96px;
+$spirit-offset-x: -48px;
+$spirit-offset-y: -96px;
+$spirit-width: 48px;
+$spirit-height: 48px;
+$spirit-total-width: 144px;
+$spirit-total-height: 144px;
+$spirit-image: '../img/sprite.png';
+$spirit: (48px, 96px, -48px, -96px, 48px, 48px, 144px, 144px, '../img/sprite.png', 'spirit', );
+$spritesheet-width: 144px;
+$spritesheet-height: 144px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($career, $creative, $env, $family, $health, $relax, $rise, $spirit, );
+$spritesheet: (144px, 144px, '../img/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
