@@ -1,7 +1,3 @@
-function greeting(name) {
-    console.log("Hello " + name);
-}
+import $ from 'jquery';
 
-greeting('Andrey');
-
-// alert(1);
+$('.title').html('hello')

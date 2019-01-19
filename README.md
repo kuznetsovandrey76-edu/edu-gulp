@@ -1,9 +1,11 @@
-Gulp education
+Gulp - task runner
+Webpack - project builder
 
 Install `https://nodejs.org/en/`  
 Первая установка `npm i gulp -g`  
 `npm init`  
-`npm i gulp --save-dev`
+`npm run build`  
+
 
 Структура
 ```

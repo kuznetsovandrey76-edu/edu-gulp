@@ -4,7 +4,8 @@
   "description": "Gulp education",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,13 @@
     "gulp-clean-css": "^4.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "path": "^0.12.7",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
