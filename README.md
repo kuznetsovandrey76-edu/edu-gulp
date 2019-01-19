@@ -1,16 +1,18 @@
-Gulp - task runner
-Webpack - project builder
+Gulp - task runner  
+Webpack - project builder  
 
 Install `https://nodejs.org/en/`  
 Первая установка `npm i gulp -g`  
 
-`npm init`
+for Gulp
+`npm init`  
 `npm i`  
 `gulp build`  
-`gulp watch` - use External link    
+`gulp watch` - use External link      
 
-for Webpack
+for Webpack / for JS  
 `npm run dev`  
+`npm run build` - production, финальная сборка   
 
 Структура
 ```
