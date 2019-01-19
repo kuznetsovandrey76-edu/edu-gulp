@@ -1,5 +1,9 @@
+body {
+    background: khaki;
+}
 .header {
     color: red;
+    display: flex;
 
     &__logo {
         text-align: center;
