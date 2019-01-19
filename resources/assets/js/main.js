@@ -1,3 +1,6 @@
-import $ from 'jquery';
+// for Webpack
+// import $ from 'jquery';
+// $('.title').html('hello');
 
-$('.title').html('hello')
+// for Gulp
+console.log(123);

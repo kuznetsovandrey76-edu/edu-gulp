@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     del = require('del'),
     // watch = require('gulp-watch'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    reload = browserSync.reload;
 
 var sass_src = 'resources/assets/sass/style.scss',
     sass_dist = 'public_html/assets/css',
@@ -52,9 +53,7 @@ gulp.task('watch', function() {
 
     gulp.watch(sass_files, gulp.series('sass'));
     gulp.watch(js_files, gulp.series('js'));
-    gulp.watch('./public_html/**/*.html', function() {
-        browserSync.reload();
-    });
+    gulp.watch('./public_html/**/*.html').on("change", reload);
 });
 
 gulp.task('build', gulp.series('clean', 
