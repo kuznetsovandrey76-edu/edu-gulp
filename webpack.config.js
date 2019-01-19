@@ -1,10 +1,16 @@
 var path = require('path');
 
 var conf = {
-    entry: './resources/assets/js/main.js',
+    entry: {
+        app: './resources/assets/js/webpack.js'
+    },
     output: {
         path: path.resolve(__dirname, './public_html/assets/js/'),
-        filename: 'main.js'
+        filename: '[name].min.js',
+        publicPath: '/public_html/assets/js/'
+    },
+    devServer: {
+        overlay: true
     } 
 };
 

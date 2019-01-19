@@ -5,12 +5,17 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     del = require('del'),
     spritesmith = require('gulp.spritesmith'),
+    image = require('gulp-image'),
+    imagemin = require('gulp-imagemin'),
+    rename = require('gulp-rename'),
     // watch = require('gulp-watch'),
     merge = require('merge-stream'),
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload;
 
-
+/** 
+* VARS
+**/
 
 // SASS 
 var sass_src = 'resources/assets/sass/style.scss',
@@ -35,6 +40,7 @@ var images_src = 'resources/assets/img/images/**/*.{png,jpg,gif}',
 
 
 
+// SASS
 gulp.task('sass', function() {
     return gulp.src(sass_src)
         .pipe(sass())
@@ -45,17 +51,21 @@ gulp.task('sass', function() {
         .pipe(cleanCSS({
             level: 2
         }))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(sass_dist))
         .pipe(browserSync.stream());
 });
     
+// JS
 gulp.task('js', function() {
     return gulp.src(js_src)
         .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(js_dist))
         .pipe(browserSync.stream());
 });
 
+// SPRITE
 gulp.task('sprite', function () {
     var spriteData = gulp.src(sprite_src)
         .pipe(spritesmith({
@@ -71,6 +81,16 @@ gulp.task('sprite', function () {
 
     return merge(imgStream, cssStream);
 });
+
+// IMAGE
+gulp.task('image', function() {
+    return gulp.src(images_src)
+        // .pipe(image())
+        .pipe(imagemin())
+        .pipe(gulp.dest(images_dist));
+});
+
+
 
 gulp.task('clean', function() {
     return del(['public_html/assets/']);
@@ -92,6 +112,7 @@ gulp.task('watch', function() {
 gulp.task('build', gulp.series(
     'clean', 
     'sprite', 
+    'image',
     'js', 
     'sass'
 ));
